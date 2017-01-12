@@ -32,7 +32,7 @@ class MagicGoogle():
         :param start:
         :return: Generator
         """
-        content = self.search_page(query, language, num, start)
+        content = self.search_page(query, language, num, start, pause)
         pq_content = self.pq_html(content)
         for item in pq_content('div.g').items():
             result = {}
@@ -81,7 +81,7 @@ class MagicGoogle():
         :param start:
         :return: Generator
         """
-        content = self.search_page(query, language, num, start)
+        content = self.search_page(query, language, num, start, pause)
         pq_content = self.pq_html(content)
         for item in pq_content('h3.r').items():
             href = item('a').attr('href')
