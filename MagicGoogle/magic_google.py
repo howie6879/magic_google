@@ -5,7 +5,8 @@ import os
 import sys
 import time
 from pyquery import PyQuery as pq
-from MagicGoogle.conf.config import USER_AGENT, DOMAIN, BLACK_DOMAIN, URL_SEARCH, URL_NEXT
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
+from .config import USER_AGENT, DOMAIN, BLACK_DOMAIN, URL_SEARCH, URL_NEXT
 
 if sys.version_info[0] > 2:
     from urllib.parse import quote_plus, urlparse, parse_qs
@@ -58,6 +59,7 @@ class MagicGoogle():
         # Add headers
         headers = {'user-agent': self.get_random_user_agent()}
         try:
+            requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
             r = requests.get(url=url,
                              proxies=self.proxies,
                              headers=headers,
