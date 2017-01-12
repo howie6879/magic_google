@@ -11,6 +11,8 @@ During the process of  crawling,you need to pay attention to the limitation fro
 ### 3.How to Use?
 Run
 ``` shell
+pip install MagicGoogle
+# Or
 git clone https://github.com/howie6879/MagicGoogle.git
 cd MagicGoogle
 vim google_search.py
