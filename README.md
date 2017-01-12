@@ -21,6 +21,8 @@ python setup.py install
 ```
 Coding
 ``` python
+from MagicGoogle import MagicGoogle
+
 mg = MagicGoogle()
 #  Crawling the whole page
 result = mg.search_page(query='python')

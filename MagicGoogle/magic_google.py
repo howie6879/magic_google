@@ -11,8 +11,8 @@ from .config import USER_AGENT, DOMAIN, BLACK_DOMAIN, URL_SEARCH, URL_NEXT
 if sys.version_info[0] > 2:
     from urllib.parse import quote_plus, urlparse, parse_qs
 else:
-    from urllib import quote_plus, urlparse, parse_qs
-
+    from urllib import quote_plus
+    from urlparse import urlparse, parse_qs
 
 class MagicGoogle():
     """
