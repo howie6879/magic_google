@@ -5,10 +5,7 @@ This is an easy Google Seraching crawler that you can get anything you want in t
 
 During the process of  crawling,you need to pay attention to the limitation from google towards ip address and the warning of anomalies , so I suggest that you should pause running the program and own the Proxy ip
 
-
-
-
-### 3.How to Use?
+### 2.How to Use?
 Run
 ``` shell
 pip install MagicGoogle
