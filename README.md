@@ -53,3 +53,18 @@ for i in mg.search(query='python', num=1):
 ```
 You can see [google_search.py](./Examples/google_search.py)
 
+If  you need a big amount of querie but only having an ip address,I suggest  you can have a time lapse between 5s ~ 30s.
+
+The reason that it always return empty might be as follows:
+
+```html
+<HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<TITLE>302 Moved</TITLE></HEAD><BODY>
+<H1>302 Moved</H1>
+The document has moved
+<A HREF="https://ipv4.google.com/sorry/index?continue=https://www.google.me/s****">here</A>.
+</BODY></HTML>
+```
+
+
+

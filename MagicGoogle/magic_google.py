@@ -6,7 +6,7 @@ import sys
 import time
 from pyquery import PyQuery as pq
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
-from MagicGoogle.config import USER_AGENT, DOMAIN, BLACK_DOMAIN, URL_SEARCH, URL_NEXT
+from MagicGoogle.config import USER_AGENT, DOMAIN, BLACK_DOMAIN, URL_SEARCH, URL_NEXT, URL_NUM
 
 if sys.version_info[0] > 2:
     from urllib.parse import quote_plus, urlparse, parse_qs
@@ -14,16 +14,16 @@ else:
     from urllib import quote_plus
     from urlparse import urlparse, parse_qs
 
+
 class MagicGoogle():
     """
     Magic google search.
     """
 
     def __init__(self, proxies=None):
-        self.url = URL_SEARCH
         self.proxies = random.choice(proxies) if proxies else None
 
-    def search(self, query, language='en', num=10, start=0, pause=2):
+    def search(self, query, language='en', num=None, start=0, pause=2):
         """
         et to the results you want,such as title,description,url
         :param query:
@@ -45,7 +45,7 @@ class MagicGoogle():
             result['text'] = text
             yield result
 
-    def search_page(self, query, language='en', num=10, start=0, pause=2):
+    def search_page(self, query, language='en', num=None, start=0, pause=2):
         """
         Google search
         :param query: Keyword
@@ -54,8 +54,14 @@ class MagicGoogle():
         """
         time.sleep(pause)
         domain = self.get_random_domain()
-        url = self.url.format(
-            domain=domain, language=language, query=quote_plus(query), num=num)
+        if num is None:
+            url = URL_SEARCH
+            url = url.format(
+                domain=domain, language=language, query=quote_plus(query))
+        else:
+            url = URL_NUM
+            url = url.format(
+                domain=domain, language=language, query=quote_plus(query), num=num)
         # Add headers
         headers = {'user-agent': self.get_random_user_agent()}
         try:
@@ -73,7 +79,7 @@ class MagicGoogle():
             print(e)
             return None
 
-    def search_url(self, query, language='en', num=10, start=0, pause=2):
+    def search_url(self, query, language='en', num=None, start=0, pause=2):
         """
         :param query:
         :param language:
