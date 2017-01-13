@@ -6,7 +6,7 @@ import sys
 import time
 from pyquery import PyQuery as pq
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
-from .config import USER_AGENT, DOMAIN, BLACK_DOMAIN, URL_SEARCH, URL_NEXT
+from MagicGoogle.config import USER_AGENT, DOMAIN, BLACK_DOMAIN, URL_SEARCH, URL_NEXT
 
 if sys.version_info[0] > 2:
     from urllib.parse import quote_plus, urlparse, parse_qs
