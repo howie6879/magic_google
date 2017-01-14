@@ -53,7 +53,7 @@ for i in mg.search(query='python', num=1):
 ```
 You can see [google_search.py](./Examples/google_search.py)
 
-If  you need a big amount of querie but only having an ip address,I suggest  you can have a time lapse between 5s ~ 30s.
+**If  you need a big amount of querie but only having an ip address,I suggest  you can have a time lapse between 5s ~ 30s.**
 
 The reason that it always return empty might be as follows:
 
