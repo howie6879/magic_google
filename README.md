@@ -19,6 +19,7 @@ python setup.py install
 Coding
 ``` python
 from MagicGoogle import MagicGoogle
+import pprint
 
 # Or PROXIES = None
 PROXIES = [{
