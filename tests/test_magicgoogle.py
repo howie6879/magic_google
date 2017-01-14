@@ -13,13 +13,11 @@ PROXIES = [{
 
 mg = MagicGoogle(PROXIES)
 
-for i in mg.search_url(query='python', pause=3):
-    pprint.pprint(i)
-
-
-exit()
 for key, value in enumerate(range(10000)):
-    print(key)
-    sleep = random.randint(2, 30)
-    for i in mg.search_url(query='python', pause=sleep):
-        pprint.pprint(i)
+    try:
+        print(key)
+        sleep = random.randint(2, 15)
+        pprint.pprint(list(mg.search_url(query='python', pause=sleep)))
+    except Exception as e:
+        print(e)
+        pass
