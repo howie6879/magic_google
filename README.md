@@ -20,7 +20,15 @@ Coding
 ``` python
 from MagicGoogle import MagicGoogle
 
-mg = MagicGoogle()
+# Or PROXIES = None
+PROXIES = [{
+    'http': 'http://192.168.2.207:1080',
+    'https': 'http://192.168.2.207:1080'
+}]
+
+# Or MagicGoogle()
+mg = MagicGoogle(PROXIES)
+
 #  Crawling the whole page
 result = mg.search_page(query='python')
 
@@ -49,7 +57,6 @@ for i in mg.search(query='python', num=1):
 # {'text': 'The official home of the Python Programming Language.',
 # 'title': 'Welcome to Python .org',
 # 'url': 'https://www.python.org/'}
-
 ```
 You can see [google_search.py](./Examples/google_search.py)
 
