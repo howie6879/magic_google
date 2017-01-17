@@ -1,4 +1,4 @@
-## MagicGoogle
+## MagicGoogle ()[https://pypi.python.org/pypi/MagicGoogle]
 
 ### 1.What's MagicGoogle
 This is an easy Google Seraching crawler that you can get anything you want in the page by using it.
