@@ -3,6 +3,7 @@ import sys
 import time
 import random
 import pprint
+
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from MagicGoogle import MagicGoogle
 

@@ -4,6 +4,7 @@ import random
 import os
 import sys
 import time
+import logging
 from pyquery import PyQuery as pq
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 from MagicGoogle.config import USER_AGENT, DOMAIN, BLACK_DOMAIN, URL_SEARCH, URL_NEXT, URL_NUM
@@ -76,7 +77,7 @@ class MagicGoogle():
             content = r.content.decode(charset['encoding'])
             return content
         except Exception as e:
-            print(e)
+            logging.error(e)
             return None
 
     def search_url(self, query, language='en', num=None, start=0, pause=2):
@@ -117,8 +118,8 @@ class MagicGoogle():
                 if o.netloc:
                     return link
         # Otherwise, or on error, return None.
-        except Exception:
-            pass
+        except Exception as e:
+            logging.error(e)
         return None
 
     def pq_html(self, content):
@@ -160,6 +161,6 @@ class MagicGoogle():
         try:
             with open(user_agents_file) as fp:
                 data = [_.strip() for _ in fp.readlines()]
-        except Exception:
+        except:
             data = [default]
         return data
