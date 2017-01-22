@@ -26,7 +26,7 @@ class MagicGoogle():
 
     def search(self, query, language='en', num=None, start=0, pause=2):
         """
-        et to the results you want,such as title,description,url
+        Get to the results you want,such as title,description,url
         :param query:
         :param language:
         :param num:
