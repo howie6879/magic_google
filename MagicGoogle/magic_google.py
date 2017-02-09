@@ -77,7 +77,7 @@ class MagicGoogle():
             content = r.content.decode(charset['encoding'])
             return content
         except Exception as e:
-            logging.error(e)
+            logging.exception(e)
             return None
 
     def search_url(self, query, language='en', num=None, start=0, pause=2):
@@ -119,8 +119,8 @@ class MagicGoogle():
                     return link
         # Otherwise, or on error, return None.
         except Exception as e:
-            logging.error(e)
-        return None
+            logging.exception(e)
+            return None
 
     def pq_html(self, content):
         """

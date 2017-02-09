@@ -1,4 +1,4 @@
-www.google.ac
+www.google.com
 www.google.ad
 www.google.ae
 www.google.com.af
@@ -29,8 +29,6 @@ www.google.co.bw
 www.google.by
 www.google.com.bz
 www.google.ca
-www.google.cat
-www.google.cc
 www.google.cd
 www.google.cf
 www.google.cg
@@ -39,6 +37,7 @@ www.google.ci
 www.google.co.ck
 www.google.cl
 www.google.cm
+www.google.cn
 www.google.com.co
 www.google.co.cr
 www.google.com.cu
@@ -62,7 +61,6 @@ www.google.fm
 www.google.fr
 www.google.ga
 www.google.ge
-www.google.gf
 www.google.gg
 www.google.com.gh
 www.google.com.gi
@@ -82,7 +80,6 @@ www.google.ie
 www.google.co.il
 www.google.im
 www.google.co.in
-www.google.io
 www.google.iq
 www.google.is
 www.google.it
@@ -91,15 +88,14 @@ www.google.com.jm
 www.google.jo
 www.google.co.jp
 www.google.co.ke
-www.google.kg
 www.google.com.kh
 www.google.ki
+www.google.kg
 www.google.co.kr
 www.google.com.kw
 www.google.kz
 www.google.la
 www.google.com.lb
-www.google.com.lc
 www.google.li
 www.google.lk
 www.google.co.ls
@@ -124,10 +120,10 @@ www.google.com.mx
 www.google.com.my
 www.google.co.mz
 www.google.com.na
-www.google.ne
 www.google.com.nf
 www.google.com.ng
 www.google.com.ni
+www.google.ne
 www.google.nl
 www.google.no
 www.google.com.np
@@ -148,7 +144,6 @@ www.google.pt
 www.google.com.py
 www.google.com.qa
 www.google.ro
-www.google.rs
 www.google.ru
 www.google.rw
 www.google.com.sa
@@ -160,9 +155,9 @@ www.google.sh
 www.google.si
 www.google.sk
 www.google.com.sl
-www.google.sm
 www.google.sn
 www.google.so
+www.google.sm
 www.google.sr
 www.google.st
 www.google.com.sv
@@ -191,6 +186,8 @@ www.google.co.vi
 www.google.com.vn
 www.google.vu
 www.google.ws
+www.google.rs
 www.google.co.za
 www.google.co.zm
 www.google.co.zw
+www.google.cat
