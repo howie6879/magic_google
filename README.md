@@ -5,7 +5,7 @@ This is an easy Google Seraching crawler that you can get anything you want in t
 
 During the process of  crawling,you need to pay attention to the limitation from google towards ip address and the warning of exception , so I suggest that you should pause running the program and own the Proxy ip
 
-php - [MagicGoogle](https://github.com/howie6879/phpGoogle)
+php - [MagicGoogle](https://github.com/howie6879/php-google)
 
 ### 2.How to Use?
 Run
