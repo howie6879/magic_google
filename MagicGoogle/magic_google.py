@@ -26,7 +26,7 @@ class MagicGoogle():
 
     def search(self, query, language='en', num=None, start=0, pause=2):
         """
-        Get to the results you want,such as title,description,url
+        Get the results you want,such as title,description,url
         :param query:
         :param language:
         :param num:
@@ -65,6 +65,7 @@ class MagicGoogle():
                 domain=domain, language=language, query=quote_plus(query), num=num)
         # Add headers
         headers = {'user-agent': self.get_random_user_agent()}
+        print(url)
         try:
             requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
             r = requests.get(url=url,
@@ -139,7 +140,7 @@ class MagicGoogle():
 
     def get_random_domain(self):
         """
-        Get a random user agent string.
+        Get a random domain.
         :return: Random user agent string.
         """
         domain = random.choice(self.get_data('all_domain.txt', DOMAIN))
