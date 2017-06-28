@@ -4,10 +4,8 @@ import random
 import os
 import sys
 import time
-import logging
 from pyquery import PyQuery as pq
-from requests.packages.urllib3.exceptions import InsecureRequestWarning
-from MagicGoogle.config import USER_AGENT, DOMAIN, BLACK_DOMAIN, URL_SEARCH, URL_NEXT, URL_NUM
+from MagicGoogle.config import USER_AGENT, DOMAIN, BLACK_DOMAIN, URL_SEARCH, URL_NUM, LOGGER
 
 if sys.version_info[0] > 2:
     from urllib.parse import quote_plus, urlparse, parse_qs
@@ -65,20 +63,20 @@ class MagicGoogle():
                 domain=domain, language=language, query=quote_plus(query), num=num)
         # Add headers
         headers = {'user-agent': self.get_random_user_agent()}
-        print(url)
         try:
-            requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+            requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
             r = requests.get(url=url,
                              proxies=self.proxies,
                              headers=headers,
                              allow_redirects=False,
                              verify=False,
                              timeout=30)
+            LOGGER.info(url)
             charset = chardet.detect(r.content)
             content = r.content.decode(charset['encoding'])
             return content
         except Exception as e:
-            logging.exception(e)
+            LOGGER.exception(e)
             return None
 
     def search_url(self, query, language='en', num=None, start=0, pause=2):
@@ -120,7 +118,7 @@ class MagicGoogle():
                     return link
         # Otherwise, or on error, return None.
         except Exception as e:
-            logging.exception(e)
+            LOGGER.exception(e)
             return None
 
     def pq_html(self, content):

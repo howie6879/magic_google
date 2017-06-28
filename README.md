@@ -1,5 +1,7 @@
 ## MagicGoogle
 
+[![PyPI](https://img.shields.io/pypi/v/MagicGoogle.svg)](https://pypi.python.org/pypi/MagicGoogle/)
+
 ### 1.What's MagicGoogle
 This is an easy Google Searching crawler that you can get anything you want in the page by using it.
 
