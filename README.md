@@ -14,6 +14,8 @@ Run
 ``` shell
 pip install MagicGoogle
 # Or
+pip install git+https://github.com/howie6879/MagicGoogle.git
+# Or
 git clone https://github.com/howie6879/MagicGoogle.git
 cd MagicGoogle
 vim google_search.py
