@@ -1,9 +1,11 @@
-import requests
-import chardet
-import random
 import os
+import random
 import sys
 import time
+
+import cchardet
+import requests
+
 from pyquery import PyQuery as pq
 from MagicGoogle.config import USER_AGENT, DOMAIN, BLACK_DOMAIN, URL_SEARCH, URL_NUM, LOGGER
 
@@ -72,9 +74,10 @@ class MagicGoogle():
                              verify=False,
                              timeout=30)
             LOGGER.info(url)
-            charset = chardet.detect(r.content)
-            content = r.content.decode(charset['encoding'])
-            return content
+            content = r.content
+            charset = cchardet.detect(content)
+            text = content.decode(charset['encoding'])
+            return text
         except Exception as e:
             LOGGER.exception(e)
             return None
