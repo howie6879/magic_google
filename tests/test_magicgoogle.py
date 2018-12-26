@@ -4,7 +4,7 @@ import random
 import unittest
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-from MagicGoogle import MagicGoogle
+from magic_google import MagicGoogle
 
 
 class TestMagicGoogle(unittest.TestCase):
@@ -14,8 +14,8 @@ class TestMagicGoogle(unittest.TestCase):
 
     def setUp(self):
         PROXIES = [{
-            'http': '192.168.2.207:1080',
-            'https': '192.168.2.207:1080'
+            'http': '127.0.0.1:1087',
+            'https': '127.0.0.1:1087'
         }]
         self.mg = MagicGoogle(PROXIES)
 

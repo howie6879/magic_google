@@ -7,7 +7,7 @@ import cchardet
 import requests
 
 from pyquery import PyQuery as pq
-from MagicGoogle.config import USER_AGENT, DOMAIN, BLACK_DOMAIN, URL_SEARCH, URL_NEXT, URL_NUM, LOGGER
+from magic_google.config import USER_AGENT, DOMAIN, BLACK_DOMAIN, URL_SEARCH, URL_NEXT, URL_NUM, LOGGER
 
 if sys.version_info[0] > 2:
     from urllib.parse import quote_plus, urlparse, parse_qs

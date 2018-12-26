@@ -5,18 +5,18 @@ import random
 import pprint
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-from MagicGoogle import MagicGoogle
+from magic_google import MagicGoogle
 
 ################################################
 # """
-# cd MagicGoogle
-# python Examples/search_result.py
+# cd magic_google
+# python examples/google_search.py
 # """
 #################################################
 
 PROXIES = [{
-    'http': 'http://127.0.0.1:8118',
-    'https': 'http://127.0.0.1:8118'
+    'http': 'http://127.0.0.1:1087',
+    'https': 'http://127.0.0.1:1087'
 }]
 
 # Or MagicGoogle()

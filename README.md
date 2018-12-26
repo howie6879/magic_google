@@ -1,8 +1,8 @@
-## MagicGoogle
+## magic_google
 
-[![PyPI](https://img.shields.io/pypi/v/MagicGoogle.svg)](https://pypi.python.org/pypi/MagicGoogle/)
+[![](https://img.shields.io/pypi/v/magic_google.svg)](https://pypi.org/project/magic-google/)
 
-### 1.What's MagicGoogle
+### 1.What's magic_google
 This is an easy Google Searching crawler that you can get anything you want in the page by using it.
 
 During the process of  crawling,you need to pay attention to the limitation from google towards ip address and the warning of exception , so I suggest that you should pause running the program and own the Proxy ip
@@ -12,19 +12,19 @@ php - [MagicGoogle](https://github.com/howie6879/php-google)
 ### 2.How to Use?
 Run
 ``` shell
-pip install MagicGoogle
+pip install magic_google
 # Or
-pip install git+https://github.com/howie6879/MagicGoogle.git
+pip install git+https://github.com/howie6879/magic_google.git
 # Or
-git clone https://github.com/howie6879/MagicGoogle.git
-cd MagicGoogle
+git clone https://github.com/howie6879/magic_google.git
+cd magic_google
 vim google_search.py
 # Or 
 python setup.py install
 ```
 Example
 ``` python
-from MagicGoogle import MagicGoogle
+from magic_google import MagicGoogle
 import pprint
 
 # Or PROXIES = None
@@ -65,7 +65,7 @@ for i in mg.search(query='python', num=1):
 # 'title': 'Welcome to Python .org',
 # 'url': 'https://www.python.org/'}
 ```
-You can see [google_search.py](./Examples/google_search.py)
+You can see [google_search.py](./examples/google_search.py)
 
 **If  you need a big amount of querie but only having an ip address,I suggest  you can have a time lapse between 5s ~ 30s.**
 
