@@ -42,16 +42,16 @@ class MagicGoogle():
                     ppa = pa.parent()
                     if ppa.attr('class') is not None:
                         
-                    result = {}
-                    result['title'] = p('h3').eq(0).text()
-                    result['url_path'] = p('div').eq(1).text()
-                    href = p.attr('href')
-                    if href:
-                        url = self.filter_link(href)
-                        result['url'] = url
-                    text = ppa('div').eq(0).text()
-                    result['text'] = text
-                    yield result
+                        result = {}
+                        result['title'] = p('h3').eq(0).text()
+                        result['url_path'] = p('div').eq(1).text()
+                        href = p.attr('href')
+                        if href:
+                            url = self.filter_link(href)
+                            result['url'] = url
+                        text = ppa('div').eq(0).text()
+                        result['text'] = text
+                        yield result
 
     def search_page(self, query, language=None, num=None, start=0, pause=2):
         """
@@ -106,12 +106,18 @@ class MagicGoogle():
         """
         content = self.search_page(query, language, num, start, pause)
         pq_content = self.pq_html(content)
-        for item in pq_content('h3.r').items():
-            href = item('a').attr('href')
-            if href:
-                url = self.filter_link(href)
-                if url:
-                    yield url
+        
+        for p in pq_content.items('a'):
+            if p.attr('href').startswith('/url?q='):
+                pa = p.parent()
+                if pa.is_('div'):
+                    ppa = pa.parent()
+                    if ppa.attr('class') is not None:
+                        
+                        href = p.attr('href')
+                        if href:
+                            url = self.filter_link(href)
+                            yield url
 
     def filter_link(self, link):
         """
