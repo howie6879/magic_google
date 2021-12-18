@@ -1,10 +1,14 @@
-import os
-import sys
-import time
-import random
-import pprint
+"""
+    Created by howie.hu at 2021-12-18.
+    Description: example
+    Changelog: all notable changes to this file will be documented
+"""
 
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+
+import pprint
+import random
+import time
+
 from magic_google import MagicGoogle
 
 ################################################
@@ -14,10 +18,7 @@ from magic_google import MagicGoogle
 # """
 #################################################
 
-PROXIES = [{
-    'http': 'http://127.0.0.1:1087',
-    'https': 'http://127.0.0.1:1087'
-}]
+PROXIES = [{"http": "http://127.0.0.1:1087", "https": "http://127.0.0.1:1087"}]
 
 # Or MagicGoogle()
 mg = MagicGoogle(PROXIES)
@@ -29,7 +30,7 @@ mg = MagicGoogle(PROXIES)
 # time.sleep(random.randint(1, 5))
 
 # Get {'title','url','text'}
-for i in mg.search(query='python', num=1, language='en'):
+for i in mg.search(query="python", num=1, language="en"):
     pprint.pprint(i)
 
 time.sleep(random.randint(1, 5))
@@ -40,7 +41,7 @@ time.sleep(random.randint(1, 5))
 # 'url': 'https://www.python.org/'}
 
 # Get first page
-for url in mg.search_url(query='python'):
+for url in mg.search_url(query="python"):
     pprint.pprint(url)
 
 time.sleep(random.randint(1, 5))
@@ -59,7 +60,7 @@ time.sleep(random.randint(1, 5))
 # 'https://www.continuum.io/downloads'
 
 # Get second page
-for url in mg.search_url(query='python', start=10):
+for url in mg.search_url(query="python", start=10):
     pprint.pprint(url)
 
 # Output
