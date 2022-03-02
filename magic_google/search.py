@@ -41,7 +41,7 @@ class MagicGoogle:
         self.ua_list = get_data(file_path=self.config.UA_PATH)
         self.proxies = random.choice(proxies) if proxies else None
 
-    def search(self, query, language=None, num=None, start=0, pause=2):
+    def search(self, query, language=None, num=None, start=0, pause=2, country=None):
         """Get the results you want, such as title,description,url
 
         Args:
@@ -50,11 +50,11 @@ class MagicGoogle:
             num ([type], optional): Number of results per page. Defaults to None.
             start (int, optional): start result. Defaults to 0.
             pause (int, optional): pause time(s). Defaults to 2.]
-
+            country (str, optional): query country, Defaults to None example: countryCN or cn or CN
         Yields:
             [type]: {}
         """
-        content = self.search_page(query, language, num, start, pause)
+        content = self.search_page(query, language, num, start, pause, country)
         pq_content = pq(content)
         for p in pq_content.items("a"):
             if p.attr("href").startswith("/url?q="):
@@ -73,7 +73,7 @@ class MagicGoogle:
                         result["text"] = text
                         yield result
 
-    def search_url(self, query, language=None, num=None, start=0, pause=2):
+    def search_url(self, query, language=None, num=None, start=0, pause=2, country=None):
         """search url from page
 
         Args:
@@ -82,11 +82,12 @@ class MagicGoogle:
             num ([type], optional): Number of results per page. Defaults to None.
             start (int, optional): start result. Defaults to 0.
             pause (int, optional): pause time(s). Defaults to 2.
+            country (str, optional): query country, Defaults to None example: countryCN or cn or CN
 
         Yields:
             [type]: [url]
         """
-        content = self.search_page(query, language, num, start, pause)
+        content = self.search_page(query, language, num, start, pause, country)
         pq_content = pq(content)
 
         for p in pq_content.items("a"):
@@ -100,7 +101,7 @@ class MagicGoogle:
                             url = self.filter_link(href)
                             yield url
 
-    def search_page(self, query, language=None, num=None, start=0, pause=2):
+    def search_page(self, query, language=None, num=None, start=0, pause=2, country = None):
         """Google search
 
         Args:
@@ -109,11 +110,13 @@ class MagicGoogle:
             num ([type], optional): Number of results per page. Defaults to None.
             start (int, optional): start result. Defaults to 0.
             pause (int, optional): pause time(s). Defaults to 2.
+            country (str, optional): query country, Defaults to None example: countryCN or cn or CN
 
         Returns:
             [str]: Content
         """
         query, domain = quote_plus(query), self.get_random_domain()
+        country = 'country' + country.replace('country', '').upper() if country else None
         if start > 0:
             url = self.config.URL_NEXT
             url = url.format(
@@ -122,15 +125,17 @@ class MagicGoogle:
                 query=query,
                 num=num,
                 start=start,
+                country=country
             )
         else:
             if num is None:
                 url = self.config.URL_SEARCH
-                url = url.format(domain=domain, language=language, query=query)
+                url = url.format(domain=domain, language=language, query=query, country=country)
             else:
                 url = self.config.URL_NUM
-                url = url.format(domain=domain, language=language, query=query, num=num)
+                url = url.format(domain=domain, language=language, query=query, num=num, country=country)
         url = url.replace("hl=None&", "") if language is None else url
+        url = url.replace("&cr=None", "") if country is None else url
         # Add headers
         headers = {"user-agent": self.get_random_user_agent()}
         try:
