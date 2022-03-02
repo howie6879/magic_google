@@ -20,6 +20,6 @@ class Config:
     BLACK_DOMAIN = ["www.google.gf", "www.google.io", "www.google.com.lc"]
     # global uri
     DOMAIN = "www.google.com"
-    URL_SEARCH = "https://{domain}/search?hl={language}&q={query}&btnG=Search&gbv=1"
+    URL_SEARCH = "https://{domain}/search?hl={language}&q={query}&btnG=Search&gbv=1&cr={country}"
     URL_NUM = URL_SEARCH + "&num={num}"
     URL_NEXT = URL_NUM + "&num={num}&start={start}"
