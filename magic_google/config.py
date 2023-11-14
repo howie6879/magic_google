@@ -21,5 +21,13 @@ class Config:
     # global uri
     DOMAIN = "www.google.com"
     URL_SEARCH = "https://{domain}/search?hl={language}&q={query}&btnG=Search&gbv=1&cr={country}"
+    
+    #qdr:h (past hour)
+    #qdr:d (past day)
+    #qdr:w (past week)
+    #qdr:m (past month)
+    #qdr:y (past year)
+    URL_SEARCH += "&tbs=qdr:{past}"
+    
     URL_NUM = URL_SEARCH + "&num={num}"
     URL_NEXT = URL_NUM + "&num={num}&start={start}"
